@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendor Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='design.css') }}">
+
+</head>
+<body>
+    <div class="logo">
+            Gharfix
+        </div>
+    <h2>Find Vendors</h2>
+    <style>
+        form{ 
+            align-content: center;
+        }
+
+
+
+    </style>
+
+    <form action="/search" method="POST">
+
+        <label>Select Service:</label><br>
+        <select name="service" required>
+            <option value="">-- Select Service --</option>
+            {% for s in services %}
+                <option value="{{ s }}">{{ s }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label>Select Area:</label><br>
+        <select name="area" required>
+            <option value="">-- Select Area --</option>
+            {% for a in areas %}
+                <option value="{{ a }}">{{ a }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <button type="submit">Search</button>
+        
+    </form>
+
+</body>
+</html>
